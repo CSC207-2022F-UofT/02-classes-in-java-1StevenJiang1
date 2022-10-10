@@ -117,11 +117,11 @@ public class Silly implements Comparable<Silly>{
          *                Fill out the expected_values array with the
          *                values that countStatic will return at each call.
          */
-        x.countStatic();
-        y.countStatic();
-        x.countStatic();
-        x.countStatic();
-        int[] expected_values = {1, 1, 2, 3};
+        int a = x.countStatic();
+        int b = y.countStatic();
+        int c = x.countStatic();
+        int d = x.countStatic();
+        int[] expected_values = {a, b, c, d};
 
         System.out.println("The countStatic calls will return " + Arrays.toString(expected_values));
     }
@@ -163,7 +163,7 @@ public class Silly implements Comparable<Silly>{
         }
 
         Silly other = (Silly) o; // To access .name of o, we need to cast it.
-        return other.name.equals(((Silly) o).name);
+        return this.name.equals(((Silly) o).name);
 
         // Hint: to compare strings, we need to use .equals()
         //       e.g. s1.equals(s2)
@@ -200,7 +200,15 @@ public class Silly implements Comparable<Silly>{
          *                You can get the length of a string by using the
          *                .length() method.
          */
-        return Integer.compare(this.name.length(), other.name.length());
+        if (this.name.length() > other.name.length()){
+            return 1;
+        }
+        else if(this.name.length() < other.name.length()){
+            return -1;
+        }
+        else{
+            return 0;
+        }
 
         /*
      * TODO (Task 6): Submit the changes you made on GitHub!

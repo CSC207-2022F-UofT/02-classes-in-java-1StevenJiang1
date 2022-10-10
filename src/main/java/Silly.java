@@ -27,7 +27,6 @@ public class Silly implements Comparable<Silly>{
 
     // For comparison, this is a non-static attribute.
     public String name;
-jsjsjs
     /**
      * Return the current value of my_static and increase my_static by 1.
      *
@@ -79,6 +78,12 @@ jsjsjs
      *       strings (e.g. this.name = [first string] + [second string]).
      *       Make sure you document this method!
      */
+    public  Silly(String name1, String name2){
+        /* concatenate name1 and name2
+         *
+         */
+        this.name = name1 + name2;
+    }
 
 
 
@@ -116,7 +121,7 @@ jsjsjs
         y.countStatic();
         x.countStatic();
         x.countStatic();
-        int[] expected_values = {};
+        int[] expected_values = {1, 1, 2, 3};
 
         System.out.println("The countStatic calls will return " + Arrays.toString(expected_values));
     }
@@ -133,7 +138,7 @@ jsjsjs
      */
     @Override
     public String toString(){
-        // TODO (Task 3): Implement the body of this method!
+        return this.name;
     }
 
     /**
@@ -158,6 +163,7 @@ jsjsjs
         }
 
         Silly other = (Silly) o; // To access .name of o, we need to cast it.
+        return other.name.equals(((Silly) o).name);
 
         // Hint: to compare strings, we need to use .equals()
         //       e.g. s1.equals(s2)
@@ -194,9 +200,9 @@ jsjsjs
          *                You can get the length of a string by using the
          *                .length() method.
          */
-    }
+        return Integer.compare(this.name.length(), other.name.length());
 
-    /*
+        /*
      * TODO (Task 6): Submit the changes you made on GitHub!
      *                When you submit it, go to the 'Actions' tab. You should
      *                be able to see this exercise being autograded!
@@ -205,5 +211,5 @@ jsjsjs
      *                If the tests don't pass, look at the results and revise
      *                accordingly.
      */
-}
+}}
 

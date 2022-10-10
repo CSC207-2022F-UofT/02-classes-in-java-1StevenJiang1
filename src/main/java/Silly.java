@@ -27,7 +27,7 @@ public class Silly implements Comparable<Silly>{
 
     // For comparison, this is a non-static attribute.
     public String name;
-
+jsjsjs
     /**
      * Return the current value of my_static and increase my_static by 1.
      *
